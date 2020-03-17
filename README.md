@@ -11,13 +11,13 @@ Excel-DNA是一个将.NET与Excel集成的独立项目。 - 官网 http://excel-
 
 总览
 --------
-Excel has no known support for user-defined functions to display as part of the on-sheet intellisense. We use the UI Automation support of Windows and Excel, to keep track of relevant changes of the Excel interface, and overlay IntelliSense information when appropriate.
+Excel默认不支持将用户定义的功能显示为工作表智能感知的一部分。 我们使用Windows和Excel的UI自动化支持来跟踪Excel界面的相关更改，并在适当时显示提示信息。
 
-Current status
+当前状态
 --------------
-The project is under activate development, and ready for intial testing.
+该项目正在积极开发中，并准备进行初始测试。
 
-For an Excel-DNA function defined like this:
+带提示的Excel-Dna项目代码如下（C#）：
 ```C#
 [ExcelFunction(Description = "A useful test function that adds two numbers, and returns the sum.")]
 public static double AddThem(
@@ -29,7 +29,7 @@ public static double AddThem(
 	return v1 + v2;
 }
 ```
-we get both the function description
+函数提示效果如下：
 
 ![Function Description](https://raw.github.com/Excel-DNA/IntelliSense/master/Screenshots/FunctionDescription.PNG)
 
