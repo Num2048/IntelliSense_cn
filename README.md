@@ -1,11 +1,15 @@
-Excel-DNA IntelliSense
+Excel-DNA IntelliSense_cn
 ======================
-Excel-DNA - see http://excel-dna.net - is an independent project to integrate .NET with Excel.
-With Excel-DNA you can make native (.xll) add-ins for Excel using C#, Visual Basic.NET or F#, providing high-performance user-defined functions (UDFs), custom ribbon interfaces and more.
 
-This project adds in-sheet IntelliSense for Excel UDFs, either through an independently deployed add-in or as part of an Excel-DNA add-in.
+Fork是因为要用这个，但是英语不太行，于是翻译一下文档，[点击跳转原文档](https://github.com/Excel-DNA/IntelliSense)。
 
-Overview
+Excel-DNA是一个将.NET与Excel集成的独立项目。 - 官网 http://excel-dna.net
+
+结合Excel-DNA，你可以用C#、VB或者F#编写用于Excel的.xll插件，可以编写高性能的自定义公式(UDFs)、Ribbon选项卡等。
+
+这个项目用于为Excel自定义公式编写提示，可以单独作为插件部署或者与Excel-Dna插件打包发布。
+
+总览
 --------
 Excel has no known support for user-defined functions to display as part of the on-sheet intellisense. We use the UI Automation support of Windows and Excel, to keep track of relevant changes of the Excel interface, and overlay IntelliSense information when appropriate.
 
