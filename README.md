@@ -11,7 +11,7 @@ Excel-DNA是一个将.NET与Excel集成的独立项目。 - 官网 http://excel-
 
 总览
 --------
-Excel默认不支持将用户定义的功能显示为工作表智能感知的一部分。 我们使用Windows和Excel的UI自动化支持来跟踪Excel界面的相关更改，并在适当时显示提示信息。
+Excel默认不支持将用户定义的功能显示为工作表自动提示的一部分。 我们使用Windows和Excel的UI自动化支持来跟踪Excel界面的相关更改，并在适当时显示提示信息。
 
 当前状态
 --------------
@@ -19,63 +19,64 @@ Excel默认不支持将用户定义的功能显示为工作表智能感知的一
 
 带提示的Excel-Dna项目代码如下（C#）：
 ```C#
-[ExcelFunction(Description = "A useful test function that adds two numbers, and returns the sum.")]
+[ExcelFunction(Description = "一个测试函数，返回两个数的和")]
 public static double AddThem(
-	[ExcelArgument(Name = "Augend", Description = "is the first number, to which will be added")] 
+	[ExcelArgument(Name = "数值1", Description = "这是被计算的第一个数字")] 
 	double v1,
-	[ExcelArgument(Name = "Addend", Description = "is the second number that will be added")]     
+	[ExcelArgument(Name = "数值2", Description = "这是被计算的第二个数字")]     
 	double v2)
 {
 	return v1 + v2;
 }
 ```
-函数提示效果如下：
+函数描述效果如下：
 
-![Function Description](https://raw.github.com/Excel-DNA/IntelliSense/master/Screenshots/FunctionDescription.PNG)
+![Function Description](https://raw.github.com/num2048/IntelliSense/master/Screenshots/FunctionDescription.PNG)
 
-and when selecting the function, we get argument help
+输入参数时，可以看到提示
 
-![Argument Help](https://raw.github.com/Excel-DNA/IntelliSense/master/Screenshots/ArgumentHelp.PNG)
+![Argument Help](https://raw.github.com/num2048/IntelliSense/master/Screenshots/ArgumentHelp.PNG)
 
 
-User-defined functions written in VBA (either in an add-in or regular Workbook) can also provide IntelliSense descriptions, either by embedding descriptions in the Workbook, or in an external file.
+用户在自定义VBA函数时 (代码在插件或者工作簿中) ，把相应代码写在工作簿或者外部文件中，也可以使用自动描述/提示。
 
-The first configuration being tested now, is where the IntelliSense display server is loaded as a separate add-in.
+目前的测试是基于把IntelliSense作为单独加载项进行的.
 
-Getting Started
+开始使用
 ---------------
 
-For existing Excel-DNA add-ins (v0.32 or later):
-  * Download and load the latest ExcelDna.IntelliSense.xll or ExcelDna.IntelliSense64.xll from the [Releases](https://github.com/Excel-DNA/IntelliSense/releases) page.
-  * IntelliSense should work automatically for functions that have descriptions in [ExcelFunction] and [ExcelArgument] attributes.
+使用Excel-DNA插件开发时 (0.32之后的版本):
+  * 从[Releases](https://github.com/Excel-DNA/IntelliSense/releases)下载并加载最新版ExcelDna.IntelliSense.xll或ExcelDna.IntelliSense64.xll（64位Excel）。
+  * IntelliSense将会自动识别自定义函数代码中的[ExcelFunction]和[ExcelArgument]属性。
 
-For VBA workbooks or add-ins:
-  * Download and load the latest ExcelDna.IntelliSense.xll or ExcelDna.IntelliSense64.xll from the [Releases](https://github.com/Excel-DNA/IntelliSense/releases) page.
-  * Either add a sheet with the IntelliSense function descriptions, or a separate xml file.
+对于VBA工作簿或者插件:
+  * 从[Releases](https://github.com/Excel-DNA/IntelliSense/releases)下载并加载最新版ExcelDna.IntelliSense.xll或ExcelDna.IntelliSense64.xll（64位Excel）。
+  * 添加一个包含IntelliSense函数描述的工作表，或者添加一个独立的xml文件。
+  
+查看 [开始使用](https://github.com/num2048/IntelliSense/wiki/Getting-Started) 页面获取更多信息.
 
-See the [Getting Started](https://github.com/Excel-DNA/IntelliSense/wiki/Getting-Started) page for more detail.
-
-Future direction
+未来目标
 ----------------
 
-Once a basic implementation is working, there is scope for quite a lot of enhancement. For example, we could add support for:
+基础部分已经可以使用，但是还有可以优化的地方. 例如我们需要优化以下方面:
 
-  * enum lists and other parameter selection and validation
-  * links to forms or hyperlinks to help
-  * enhanced argument selection controls, like a date selector
+  * 枚举列表和其他参数的选择及验证
+  * 添加帮助窗体或超链接
+  * 更强大的参数选择控件，例如日期选择器
 
-Support and participation
+参与和支持
 -------------------------
-"We accept pull requests" ;-) 
-Any help or feedback is greatly appreciated.
+"我们接受Pull requests" ;-) 
 
-Please log bugs and feature suggestions on the GitHub 'Issues' page.
+我们感谢任何帮助或反馈。
 
-For general comments or discussion, use the Excel-DNA forum at https://groups.google.com/forum/#!forum/exceldna .
+请在GitHub[“Issues”](https://github.com/Excel-DNA/IntelliSense/issues)页面上记录错误和功能建议。
 
-License
+对于一般的评论或讨论，请使用https://groups.google.com/forum/#!forum/exceldna 上的Excel-DNA论坛。
+
+开源协议
 -------
-This project is published under the standard MIT license.
+项目基于MIT license开源.
 
 
   Govert van Drimmelen
