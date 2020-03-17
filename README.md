@@ -53,7 +53,7 @@ public static double AddThem(
   * 从[Releases](https://github.com/Excel-DNA/IntelliSense/releases)下载并加载最新版ExcelDna.IntelliSense.xll或ExcelDna.IntelliSense64.xll（64位Excel）。
   * 添加一个包含IntelliSense函数描述的工作表，或者添加一个独立的xml文件。
   
-查看 [开始使用](https://github.com/num2048/IntelliSense/wiki/Getting-Started) 页面获取更多信息.
+查看 [开始使用](https://github.com/num2048/IntelliSense/wiki/快速入门) 页面获取更多信息.
 
 未来目标
 ----------------
